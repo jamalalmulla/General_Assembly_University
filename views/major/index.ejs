@@ -1,0 +1,33 @@
+<center> <h1>Majors</h1> </center>
+
+<table class="table table-striped">
+    <tr>
+        <th>Majors </th>
+        <th>Students </th>
+        <th>instructors </th>
+        <th>Courses </th>
+        <th>Action </th>
+        <th> Updated At </th>
+        <th> Edit </th>
+        <th> Delete </th>
+    </tr>
+    <% majors.forEach (function(major){ %>
+    <tr>
+        <td><a href="/major/detail?id=<%= major._id %> "> <%= major.major %> </a> </td>
+        <!-- <td> <%= major.majorID %></td> -->
+        <td> <%= major.student %></td>
+        <td> <%= major.instructor %></td>
+        <td> <%= major.course %></td>
+        <td> <%= moment(major.createdAt).fromNow() %> </td>
+        <td> <%= moment(major.updatedAt).fromNow() %> </td>
+        <td>
+        <a href="/major/edit?id=<%= major._id %>"> Edit |</a>  
+        <a href="/major/delete?id=<%= major._id %>"> Delete</a> 
+        </td>
+    </tr>
+    <% }) %>
+
+
+</table>
+
+<center> <a href="/major/add" class="btn btn-primary"> Add Major</a> </center>

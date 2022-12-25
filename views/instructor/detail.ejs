@@ -1,0 +1,25 @@
+<h2> <%= instructor.firstName %> <%= instructor.lastName %> </h2>
+
+<div>
+    Instructor ID: <%= instructor.userId %>
+</div>
+
+<div>
+    Instructor Email Address: <%= instructor.email %>
+</div>
+
+<div>
+    Office: <%= instructor.office %>
+</div>
+
+
+<% instructor.course.forEach(function(course){ %>
+    <hr>
+  
+    <div class="course"> 
+    <div>Course Title: <%= course.title %></div>
+    <div>Course ID: <%= course.courseID %></div>
+    <div>Descripton: <%= course.description %></div>
+  </div>
+      <% }) %>
+

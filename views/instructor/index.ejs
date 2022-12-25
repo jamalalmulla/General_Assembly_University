@@ -1,0 +1,36 @@
+<h1 class="text-center">Instructors</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Instructor ID</th>
+    <th>Name</th>
+    <th>Office</th>
+    <th>Email Address</th>
+    <th>Add Course</th>
+    <th>Actions</th>
+  </tr>
+  <% instructors.forEach(function(instructor) { %>
+  <tr>
+    <td>
+      <a href="/instructor/detail?id=<%= instructor._id %>"
+        ><%= instructor.userId %></a
+      >
+    </td>
+    <td><%= instructor.firstName +' '+ instructor.lastName %></td>
+    <td><%= instructor.office %></td>
+    <td><%= instructor.email%></td>
+    <td>
+      <a href="/instructor/addCourse?id=<%= instructor._id %>">Add Courses</a>
+    </td>
+    <td>
+      <a href="/instructor/edit?id=<%= instructor._id %>">Edit</a> |
+      <a href="/instructor/delete?id=<%= instructor._id %>">Delete</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+<% if (currentUser && currentUser.userRole === 'instructor') { %>
+<center>
+  <a href="/instructor/add" class="btn btn-primary">Add Instructor</a>
+</center>
+<% } %>

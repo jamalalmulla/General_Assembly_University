@@ -1,0 +1,30 @@
+<center><h1> Students </h1></center>
+
+<table class="table table-striped">
+    <tr>
+        
+        <th> Student ID </th>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Email Address </th>
+        <% if (currentUser && (currentUser.userRole === 'student' || currentUser.userRole === 'instructor')) { %>
+        <th> Add Course </th>
+        <th> Actions </th>
+        <% } %>
+    </tr>
+
+    <% students.forEach(function(student){ %> 
+    <tr>
+        <td> <a href="/student/detail?id=<%= student._id %>">  <%= student.userId %>  </a></td>
+        <td> <%= student.firstName %> </td>
+        <td> <%= student.lastName %> </td>
+        <td> <%= student.email %> </td>
+        <% if (currentUser && (currentUser.userId === student.userId || currentUser.userRole === 'instructor')) { %>
+        <td> <a href="/student/addCourse?id=<%= student._id %>"> Add Course </a> </td>
+        <td> <a href="/student/edit?id=<%= student._id %>"> Edit </a> |
+         <a href="/student/delete?id=<%= student._id %>"> Delete </a> </td>
+         <% } %>
+    </tr>
+<% }) %>
+</table>
+

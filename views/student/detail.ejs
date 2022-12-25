@@ -1,0 +1,28 @@
+<h2> <%= student.firstName %> <%= student.lastName %> </h2>
+
+<div>
+    Student ID: <%= student.userId %>
+</div>
+
+<div>
+    Student Email: <%= student.email %>
+</div>
+
+<div>
+    Created At: <%= moment(student.createdAt).fromNow() %>
+</div>
+
+<div>
+    Updated At: <%= moment(student.updatedAt).fromNow() %>
+</div>
+
+<% student.course.forEach(function(course){ %>
+    <hr>
+  
+    <div class="course"> 
+    <div>Course Title: <%= course.title %></div>
+    <div>Course ID: <%= course.courseID %></div>
+    <div>Descripton: <%= course.description %></div>
+    <div> Course Created on: <%= moment(course.createdAt).fromNow() %></div>
+  </div>
+      <% }) %>

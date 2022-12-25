@@ -1,0 +1,20 @@
+.noStyle {
+  text-decoration: none;
+  color: black;
+}
+.form-control {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  max-width: 1000px;
+}
+.logo {
+  height: 100px;
+ }
+/*.text-center {
+  padding: 20px;
+} */
+.logo-signin {
+  height: 75px;
+
+}

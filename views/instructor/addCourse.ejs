@@ -1,0 +1,34 @@
+<h1> Add a Course</h1>
+
+<form method="POST" action="/instructor/addCourse?_method=PUT">
+
+    <div class="form-group">
+        <label>Instructor ID</label>
+        <input type="text" name="instructor" value="<%= instructor.userId %>" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Instructor Name</label>
+        <input type="text" name="fullName" value="<%= instructor.firstName %> <%= instructor.lastName %>" class="form-control">
+    </div>
+    <br>
+
+    <input type="hidden" name="id" value="<%= instructor.id %>"  class="form-control">
+    <input type="hidden" name="password" value="<%= instructor.password %>"  class="form-control">
+
+    <div class="form-group">
+        <label>Courses</label>
+        <select name="course[]" multiple="multiple" class="form-control">
+            <% courses.forEach(function(course){ %>
+            
+                <option value="<%= course._id %>"><%= course.title %></option>
+            
+            <% }) %>
+        </select>
+    </div>
+
+    
+    <br>
+    <button type="submit" class="btn btn-primary">Add Course</button>
+
+</form>

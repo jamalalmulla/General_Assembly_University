@@ -1,0 +1,32 @@
+<center> <h1>Courses</h1> </center>
+
+<table class="table table-striped">
+    <tr>
+        <th>Title </th>
+        <th>Cousre ID </th>
+        <th>Description </th>
+        <th>Action </th>
+        <th> Updated At </th>
+        <th> Edit </th>
+        <th> Delete </th>
+    </tr>
+    <% courses.forEach (function(course){ %>
+    <tr>
+        <td><a href="/course/detail?id=<%= course._id %> "> <%= course.title %> </a> </td>
+        <td> <%= course.courseID %></td>
+        <td> <%= course.description %></td>
+        <td> <%= moment(course.createdAt).fromNow() %> </td>
+        <td> <%= moment(course.updatedAt).fromNow() %> </td>
+        <td>
+        <a href="/course/edit?id=<%= course._id %>"> Edit </a>  
+        </td>
+        <td>
+        <a href="/course/delete?id=<%= course._id %>"> Delete</a> 
+        </td>
+    </tr>
+    <% }) %>
+
+
+</table>
+
+<center> <a href="/course/add" class="btn btn-primary"> Add Course</a> </center>
